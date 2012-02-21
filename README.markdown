@@ -21,21 +21,25 @@ end`
 
 For more documentation go to [the manual](http://prawn.majesticseacreature.com/manual.pdf)
 
+### Build in helpers
+* *html_strip(html)*
+Removes the html tags from a string	
+
 ## Examples
  
- 1. **Hello World**
+1. **Hello World**
  
- `hello.pdf.prawn`
- 
- `pdf.text hello world`
+	**hello.pdf.prawn**
+	
+		pdf.text hello world
   
- 2. ** Using Active Record **
+2. ** Using Active Record **
 
- `myproducts.pdf.prawn`	 
+	**myproducts.pdf.prawn**
 
-`pdf.text "Current Products are"
-pdf.move_down 20
-pdf.table(@products.collect{ |p| [p.name,p.price]})`
+		pdf.text "Current Products are"
+		pdf.move_down 20
+		pdf.table(@products.collect{ |p| [p.name,p.price]})
 
 
 ## ToDos

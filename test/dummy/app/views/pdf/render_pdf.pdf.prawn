@@ -1,11 +1,13 @@
 pdf.text "Hello There :D"
-#pdf.text "now it is here: #{cursor}"
+pdf.text "now it is here: #{pdf.cursor}"
 pdf.text "ITems are #{@items.inspect}"
 pdf.font("Courier") do
   pdf.text "Written in Courier because we are inside the block." 
 end
 
-#pdf.text "Let's see which is the current font_size: #{font_size.inspect}"
+pdf.text "with html<bold></bold>"
+pdf.text pdf.html_strip("without html <bold>LD</bold>")
+pdf.text "Let's see which is the current font_size: #{pdf.font_size.inspect}"
 pdf.move_down 10 
 pdf.font_size 16 
 pdf.text "Yeah, something bigger!"
