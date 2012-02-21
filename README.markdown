@@ -7,8 +7,14 @@
 * Ruby > 1.8.7
 
 ## Install
-1. Add  `gem 'prawn-rails'` to the Rails Gemfile
-2. Enjoy 
+1.Add to the Rails Gemfile
+
+	gem 'prawn'
+	
+	gem 'prawn-rails'
+		
+to the Rails Gemfile
+
 
 ## Usage
 Create a view with `pdf` as format and `prawn` as handler 
