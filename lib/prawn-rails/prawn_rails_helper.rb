@@ -6,6 +6,7 @@ module PrawnRailsHelper
   # @return [String] the string with out the tags
   ## 
   def html_strip html
+    return html if html.nil?
     html
       text = html.
         gsub(/(&nbsp;|\n|\s)+/im, ' ').squeeze(' ').strip.

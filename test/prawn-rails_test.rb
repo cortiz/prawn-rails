@@ -1,7 +1,11 @@
 require 'test_helper'
+require "prawn-rails/prawn_rails_helper"
 
 class PrawnRailsTest < ActiveSupport::TestCase
-  test "truth" do
-    assert_kind_of Module, PrawnRails
+  include  PrawnRailsHelper
+  test "html_strip" do
+    
+    assert_nil(html_strip(nil)) 
+    assert_not_nil(html_strip(""))
   end
 end
