@@ -29,7 +29,7 @@ For more documentation go to [the manual](http://prawn.majesticseacreature.com/m
 
 ### Build in helpers
 * *html_strip(html)*
-Removes the html tags from a string	
+Removes the html tags from a string	 
 
 ## Examples
  
