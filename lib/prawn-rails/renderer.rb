@@ -1,3 +1,4 @@
+require "prawn-rails/document"
 require "prawn-rails/prawn_rails_helper"
 
 module PrawnRails
@@ -8,7 +9,7 @@ module PrawnRails
     end
 
     def call(template)
-      "pdf = ::Prawn::Document.new;" +
+      "pdf = PrawnRails::Document.new;" +
       template.source +
       ";self.output_buffer=pdf.render;"
     end
