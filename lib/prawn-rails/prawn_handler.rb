@@ -8,7 +8,7 @@ module PrawnRails
     end
     
     def call(template)
-      "pdf = ::Prawn::Document.new(:skip_page_creation => true);" +
+      "pdf = ::Prawn::Document.new();" +
       template.source +
       ";self.output_buffer=pdf.render;"
     end

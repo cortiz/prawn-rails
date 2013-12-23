@@ -37,7 +37,6 @@ Removes the html tags from a string
  
 	**hello.pdf.prawn**
 	
-		pdf.start_new_page :size => "A4"
 		pdf.text hello world
   
 2. ** Using Active Record **
