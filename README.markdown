@@ -33,7 +33,11 @@ Removes the html tags from a string
 
 ### Default configuration
 
+Add a `prawn-rails.rb` config to your Rails app under `config/initializers` like this
 
+    PrawnRails.config do |config|
+      config.page_layout = :landscape
+    end
 
 ## Examples
  
