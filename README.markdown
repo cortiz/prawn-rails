@@ -31,6 +31,10 @@ For more documentation go to [the manual](http://prawn.majesticseacreature.com/m
 * *html_strip(html)*
 Removes the html tags from a string	 
 
+### Default configuration
+
+
+
 ## Examples
  
 1. **Hello World**
@@ -50,10 +54,9 @@ Removes the html tags from a string
 
 ## ToDos
 
-1. Add Default Configuration
-2. Add per-render Configuration
-3. Simple Html to PDF ?
-4. Any Other requested
+1. Add per-render Configuration
+2. Simple Html to PDF ?
+3. Any Other requested
 
 
 ## Dev Notes

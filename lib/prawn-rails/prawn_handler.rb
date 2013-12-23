@@ -8,7 +8,7 @@ module PrawnRails
     end
     
     def call(template)
-      "pdf = ::Prawn::Document.new();" +
+      "pdf = ::Prawn::Document.new(#{PrawnRails.config.marshal_dump});" +
       template.source +
       ";self.output_buffer=pdf.render;"
     end
