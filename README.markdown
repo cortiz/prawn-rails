@@ -31,13 +31,20 @@ For more documentation go to [the manual](http://prawn.majesticseacreature.com/m
 * *html_strip(html)*
 Removes the html tags from a string	 
 
+### Default configuration
+
+Add a `prawn-rails.rb` config to your Rails app under `config/initializers` like this
+
+    PrawnRails.config do |config|
+      config.page_layout = :landscape
+    end
+
 ## Examples
  
 1. **Hello World**
  
 	**hello.pdf.prawn**
 	
-		pdf.start_new_page :size => "A4"
 		pdf.text hello world
   
 2. ** Using Active Record **
@@ -51,10 +58,9 @@ Removes the html tags from a string
 
 ## ToDos
 
-1. Add Default Configuration
-2. Add per-render Configuration
-3. Simple Html to PDF ?
-4. Any Other requested
+1. Add per-render Configuration
+2. Simple Html to PDF ?
+3. Any Other requested
 
 
 ## Dev Notes
