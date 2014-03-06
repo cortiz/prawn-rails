@@ -1,16 +1,15 @@
 module PrawnRailsHelper
-
   ##
   # Removes all html tags from the string
   # @param html[String] string to remove the tags
   # @return [String] the string with out the tags
-  ## 
+  ##
   def html_strip html
     return html if html.nil?
     html
       text = html.
         gsub(/(&nbsp;|\n|\s)+/im, ' ').squeeze(' ').strip.
-        gsub(/<([^\s]+)[^>]*(src|href)=\s*(.?)([^>\s]*)\3[^>]*>\4<\/\1>/i, 
+        gsub(/<([^\s]+)[^>]*(src|href)=\s*(.?)([^>\s]*)\3[^>]*>\4<\/\1>/i,
     '\4')
 
       links = []
