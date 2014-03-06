@@ -62,6 +62,11 @@ Add a `prawn-rails.rb` config to your Rails app under `config/initializers` like
 2. Simple Html to PDF ?
 3. Any Other requested
 
+## thx to 
+@rwilliams 
+@sigmike
+@smber1
+@iffyuva
 
 ## Dev Notes
 Gem works with any rails 3.0 version and ruby but for development It should be atlest Rails 3.1 (for the testing env)

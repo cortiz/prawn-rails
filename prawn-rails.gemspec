@@ -10,8 +10,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Carlos Ortiz"]
   s.email       = ["chrono.dark@gmail.com"]
   s.homepage    = "https://github.com/cortiz/prawn-rails"
-  s.summary     = "Prawn Handler for RoR 3.x projects"
-  s.description = "Prawn Handler for RoR 3.x projects handles and registers pdf formats"
+  s.summary     = "Prawn Handler for RoR 3.x/4.x projects"
+  s.description = "Prawn Handler for RoR 3.x/4.x projects handles and registers pdf formats"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.markdown"]
   s.test_files = Dir["test/**/*"]
