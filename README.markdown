@@ -25,7 +25,7 @@ block like `pdf.font(FONT_NAME,opts) do
 pdf.XXXX
 end`
 
-For more documentation go to [the manual](http://prawn.majesticseacreature.com/manual.pdf)
+For more documentation go to [the manual](http://prawnpdf.org/manual.pdf)
 
 ### Build in helpers
 * *html_strip(html)*
