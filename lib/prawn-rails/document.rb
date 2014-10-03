@@ -1,4 +1,5 @@
-require "prawn"
+require 'prawn'
+require 'prawn/table'
 
 module PrawnRails
   # This derives from Prawn::Document in order to override defaults. Note
