@@ -1,3 +1,3 @@
-module PrawnRails
-  VERSION = "0.0.3"
+lsmodule PrawnRails
+  VERSION = "0.1.0"
 end

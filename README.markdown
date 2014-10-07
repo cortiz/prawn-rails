@@ -10,7 +10,7 @@
 1.Add to the Rails Gemfile
 
 	gem 'prawn'
-	
+	gem 'prawn-table'
 	gem 'prawn-rails'
 		
 to the Rails Gemfile
