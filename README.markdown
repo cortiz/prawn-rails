@@ -1,4 +1,4 @@
-# Prawn-Rails
+# Prawn-Rails [![Gem Version](https://badge.fury.io/rb/prawn-rails.svg)](http://badge.fury.io/rb/prawn-rails)
 
 ## Dependencies
  
