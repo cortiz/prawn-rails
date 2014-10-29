@@ -3,18 +3,18 @@
 ## Dependencies
  
 * prawn > 0.0.12
+* prawn-table
 * Rails 3.0x
 * Ruby > 1.8.7
 
 ## Install
 1.Add to the Rails Gemfile
 
-	gem 'prawn'
-	gem 'prawn-table'
 	gem 'prawn-rails'
 		
-to the Rails Gemfile
-
+to the Rails Gemfile  
+`prawn` and `prawn-table` is a dependency so no need to mention it in the projects Gemfile  
+but can mention a specific version if your Gemfile, if you want   
 
 ## Usage
 Create a view with `pdf` as format and `prawn` as handler 
