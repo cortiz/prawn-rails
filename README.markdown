@@ -18,8 +18,18 @@ to the Rails Gemfile
 
 ## Usage
 Create a view with `pdf` as format and `prawn` as handler 
-should look like `example.pdf.prawn`
-  
+so filename should look like `example.pdf.prawn`
+
+we provide a helper called `prawn_document` 
+it builds a PrawnRails::Document with default options. Can override with `page_size` and `page_layout` 
+example contents of `example.pdf.prawn` 
+
+    prawn_document(:page_layout => :landscape) do |pdf|
+      pdf.text "Hello World"
+    end
+
+No need to call `pdf.render`, it is called by `prawn_document` 
+
 Your available to use all prawn document methods like `pdf.text` `pdf.font_size` and also
 block like `pdf.font(FONT_NAME,opts) do
 pdf.XXXX
