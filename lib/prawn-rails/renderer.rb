@@ -1,10 +1,8 @@
 require "prawn-rails/document"
-require "prawn-rails/prawn_rails_helper"
 
 module PrawnRails
   class Renderer
     def self.call(template)
-      ::Prawn::Document.extensions << PrawnRailsHelper
       new.call(template)
     end
 
