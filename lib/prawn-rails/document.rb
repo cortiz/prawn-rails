@@ -1,5 +1,6 @@
 require 'prawn'
 require 'prawn/table'
+require "prawn-rails/extension"
 
 module PrawnRails
   # This derives from Prawn::Document in order to override defaults. Note
@@ -23,4 +24,6 @@ module PrawnRails
       super(value.to_s, options)
     end
   end
+
+  Document.extensions << Extension
 end

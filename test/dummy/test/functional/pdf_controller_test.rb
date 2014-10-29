@@ -1,4 +1,5 @@
 require 'test_helper'
+require 'pdf/reader'
 
 class PdfControllerTest < ActionController::TestCase
   test "should get a pdf" do

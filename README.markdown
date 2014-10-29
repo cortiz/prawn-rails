@@ -18,8 +18,18 @@ to the Rails Gemfile
 
 ## Usage
 Create a view with `pdf` as format and `prawn` as handler 
-should look like `example.pdf.prawn`
-  
+so filename should look like `example.pdf.prawn`
+
+we provide a helper called `prawn_document` 
+it builds a PrawnRails::Document with default options. Can override with `page_size` and `page_layout` 
+example contents of `example.pdf.prawn` 
+
+    prawn_document(:page_layout => :landscape) do |pdf|
+      pdf.text "Hello World"
+    end
+
+No need to call `pdf.render`, it is called by `prawn_document` 
+
 Your available to use all prawn document methods like `pdf.text` `pdf.font_size` and also
 block like `pdf.font(FONT_NAME,opts) do
 pdf.XXXX
@@ -36,8 +46,16 @@ Removes the html tags from a string
 Add a `prawn-rails.rb` config to your Rails app under `config/initializers` like this
 
     PrawnRails.config do |config|
-      config.page_layout = :landscape
+      config.page_layout = :portrait
+      config.page_size   = "A4"
+      config.skip_page_creation = false
     end
+
+by default `page_layout` is portrait and `page_size` is "A4" 
+also `skip_page_creation` is set to false by default, if it is set to true 
+then have to create the first page yourself for eg. 
+
+    pdf.start_new_page size: "A4", page_layout: :landscape
 
 ## Examples
  
