@@ -7,7 +7,11 @@ module PrawnRails
   # that the Prawn::Document behaviour itself shouldn't be changed.
   class Document < Prawn::Document
     def initialize(opts = {})
-      default = PrawnRails.config.to_h.merge(opts)
+      if PrawnRails.config.respond_to?(:to_h)
+        default = PrawnRails.config.to_h.merge(opts)
+      else
+        default = PrawnRails.config.marshal_dump.merge(opts)
+      end
       super(default)
     end
 
