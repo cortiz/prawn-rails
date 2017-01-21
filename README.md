@@ -1,5 +1,5 @@
 # Prawn-Rails [![Gem Version](https://badge.fury.io/rb/prawn-rails.svg)](http://badge.fury.io/rb/prawn-rails)
-<a href='https://ko-fi.com/A5071NK' target='_blank'><img height='32' style='border:0px;height:32px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=a' border='0' alt='Buy Me a Coffee' /></a> 
+<a href='http://ko-fi.com/A552JBK' target='_blank'><img height='32' style='border:0px;height:32px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=a' border='0' alt='Buy Me a Coffee' /></a> 
 
 ## Install
 ```ruby
@@ -85,6 +85,8 @@ end
 
 Created by Carlos Ortiz - @cortiz 
 
-<a href='https://ko-fi.com/A5071NK' target='_blank'><img height='32' style='border:0px;height:32px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=a' border='0' alt='Buy Me a Coffee' /></a> 
+<a href='http://ko-fi.com/A552JBK' target='_blank'><img height='32' style='border:0px;height:32px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=a' border='0' alt='Buy Me a Coffee' /></a> 
 
-Thanks to @westonganger, @rwilliams, @sigmike, @smber1, @iffyuva
+Maintained by Weston Ganger - @westonganger
+
+Special thanks to @rwilliams, @sigmike, @smber1, @iffyuva
