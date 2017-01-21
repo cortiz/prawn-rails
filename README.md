@@ -1,4 +1,5 @@
 # Prawn-Rails [![Gem Version](https://badge.fury.io/rb/prawn-rails.svg)](http://badge.fury.io/rb/prawn-rails)
+<a href='https://ko-fi.com/A5071NK' target='_blank'><img height='32' style='border:0px;height:32px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=a' border='0' alt='Buy Me a Coffee' /></a> 
 
 ## Install
 ```ruby
@@ -28,11 +29,11 @@ def show
 end
 ```
 
-### Built-in Helpers
+## Built-in Helpers
 * *html_strip(html)*:
 Removes the html tags from a string
 
-### Default configuration
+## Default configuration
 
 Add a `prawn-rails.rb` config to your Rails app under `config/initializers` like this
 
@@ -82,7 +83,8 @@ end
 
 ## Credits
 
-Created by Carlos Ortiz - @cortiz
-Maintained by Weston Ganger - @westonganger
+Created by Carlos Ortiz - @cortiz 
 
-Thanks to @rwilliams, @sigmike, @smber1, @iffyuva
+<a href='https://ko-fi.com/A5071NK' target='_blank'><img height='32' style='border:0px;height:32px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=a' border='0' alt='Buy Me a Coffee' /></a> 
+
+Thanks to @westonganger, @rwilliams, @sigmike, @smber1, @iffyuva
