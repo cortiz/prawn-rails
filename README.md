@@ -5,13 +5,12 @@
 gem 'prawn-rails'
 ```
 
-`prawn` and `prawn-table` is a dependency so no need to mention it in the projects Gemfile
-but can mention a specific version if your Gemfile, if you want
+Note: `prawn` and `prawn-table` are dependencies of `prawn-rails` so there is no need to mention it in the projects Gemfile unless you want to use a specific version of either of those libraries.
 
 ## Usage
 Create a view with `pdf` as format and `prawn` as handler so filename should look like `example.pdf.prawn`
 
-It provides a helper called `prawn_document` which builds a PrawnRails::Document with default options. Can override any options as you please. Example:
+It provides a helper called `prawn_document` which builds a PrawnRails::Document with default options. You can override any options as you please. Example:
 
 ```ruby
 prawn_document(page_layout: :landscape) do |pdf|
@@ -45,7 +44,11 @@ PrawnRails.config do |config|
 end
 ```
 
-Please note that these are the defaults. For a list of all available options see [http://www.rubydoc.info/gems/prawn/Prawn%2FDocument:initialize](http://www.rubydoc.info/gems/prawn/Prawn%2FDocument:initialize). For a list of all available metadata for the `:info` see [https://github.com/prawnpdf/prawn/blob/master/manual/document_and_page_options/metadata.rb](https://github.com/prawnpdf/prawn/blob/master/manual/document_and_page_options/metadata.rb) 
+Please note that these are the defaults. 
+
+For a list of all available options see [http://www.rubydoc.info/gems/prawn/Prawn%2FDocument:initialize](http://www.rubydoc.info/gems/prawn/Prawn%2FDocument:initialize). 
+
+For a list of all available metadata for the `:info` see [https://github.com/prawnpdf/prawn/blob/master/manual/document_and_page_options/metadata.rb](https://github.com/prawnpdf/prawn/blob/master/manual/document_and_page_options/metadata.rb) 
 
 If `skip_page_creation` is set to true then have to create the first page yourself for eg.
 
@@ -78,5 +81,8 @@ end
 ```
 
 ## Credits
+
+Created by Carlos Ortiz - @cortiz
+Maintained by Weston Ganger - @westonganger
 
 Thanks to @rwilliams, @sigmike, @smber1, @iffyuva
