@@ -1,14 +1,15 @@
-#!/usr/bin/env rake
+require File.expand_path(File.dirname(__FILE__) + '/lib/prawn-rails/version.rb')
+require 'bundler/gem_tasks'
 
-require 'bundler/setup'
+task :test do 
+  require 'rake/testtask'
 
-require 'rake/testtask'
-
-Rake::TestTask.new(:test) do |t|
-  t.libs << 'lib'
-  t.libs << 'test'
-  t.pattern = 'test/**/*_test.rb'
-  t.verbose = false
+  Rake::TestTask.new(:test) do |t|
+    t.libs << 'lib'
+    t.libs << 'test'
+    t.pattern = 'test/**/*_test.rb'
+    t.verbose = false
+  end
 end
 
 task default: :test
