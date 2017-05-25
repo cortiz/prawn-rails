@@ -54,7 +54,9 @@ For a list of all metadata the the `:info` option supports, please see [https://
 If `skip_page_creation` is set to true then you have to create the first page yourself. Example:
 
 ```ruby
-pdf.start_new_page size: "A4", page_layout: :landscape
+pdf.start_new_page
+# OR
+pdf.start_new_page size: "A4", page_layout: :portrait
 ```
 
 ## Examples
