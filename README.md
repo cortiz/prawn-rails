@@ -14,7 +14,7 @@ Create a view with `pdf` as format and `prawn` as handler so filename should loo
 It provides a helper called `prawn_document` which builds a PrawnRails::Document with default options. You can override any options as you please. Example:
 
 ```ruby
-prawn_document(page_layout: :landscape) do |pdf|
+prawn_document do |pdf|
   pdf.text "Hello World"
 end
 ```
@@ -64,7 +64,7 @@ pdf.start_new_page size: "A4", page_layout: :landscape
 ```ruby	
 # hello.pdf.prawn
 
-prawn_document(page_layout: :landscape) do
+prawn_document do |pdf|
   pdf.text 'Hello World!'
 end
 ```
@@ -74,10 +74,19 @@ end
 ```ruby
 # myproducts.pdf.prawn
 
-prawn_document do
+prawn_document do |pdf|
   pdf.text 'Current Products are:'
   pdf.move_down 20
   pdf.table @products.collect{|p| [p.name,p.price]}
+end
+```
+3. ** Using Custom options **
+
+```ruby
+# landscape.pdf.prawn
+
+prawn_document(page_layout: :landscape) do |pdf|
+  pdf.text 'Landscape Page!'
 end
 ```
 
