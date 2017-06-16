@@ -1,5 +1,8 @@
 # Changelog
 
+* `v1.0.1` - UNRELEASED
+  - Fix error when using `ActionController.render_to_string`
+
 * `v1.0.0` - January 21, 2017
   - Support `@filename`
   - Set PDF Title metadata based on `@filename` if not specified

@@ -5,7 +5,10 @@ module PrawnRails
     def self.call(template)
       %{
         @filename ||= "\#{controller.action_name}.pdf"
-        controller.response.headers['Content-Disposition'] = "inline; filename=\\\"\#{@filename}\\\""
+
+        unless controller.response.nil?
+          controller.response.headers['Content-Disposition'] = "inline; filename=\\\"\#{@filename}\\\""
+        end
 
         #{template.source.strip}
       }
