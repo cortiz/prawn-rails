@@ -1,7 +1,7 @@
-prawn_document do |pdf|
+prawn_document(page_layout: :portrait) do |pdf|
   pdf.text "Hello There :D"
   pdf.text "now it is here: #{pdf.cursor}"
-  pdf.text "ITems are #{@items.inspect}"
+  pdf.text "Items are #{@items.inspect}"
   pdf.font("Courier") do
     pdf.text "Written in Courier because we are inside the block."
   end
