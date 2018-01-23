@@ -61,7 +61,7 @@ pdf.start_new_page size: "A4", page_layout: :portrait
 
 ## Examples
 
-1. **Hello World**
+#### Hello World
 
 ```ruby	
 # hello.pdf.prawn
@@ -71,7 +71,7 @@ prawn_document do |pdf|
 end
 ```
 
-2. ** Using Active Record **
+#### Using Active Record
 
 ```ruby
 # myproducts.pdf.prawn
@@ -82,7 +82,7 @@ prawn_document do |pdf|
   pdf.table @products.collect{|p| [p.name,p.price]}
 end
 ```
-3. ** Using Custom options **
+#### Using Custom options
 
 ```ruby
 # landscape.pdf.prawn
