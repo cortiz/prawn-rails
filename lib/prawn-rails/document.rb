@@ -1,6 +1,9 @@
-require 'prawn'
-require 'prawn/table'
-require "prawn-rails/extension"
+Gem::Specifcation.find_all{|s| s.name =~ /prawn/}.map(&:name).each do |gem_name|
+  case gem_name
+  when 'prawn-rails' then require 'prawn-rails/extension'
+  else require gem_name.gsub('-', '/')
+  end
+end
 
 module PrawnRails
 
