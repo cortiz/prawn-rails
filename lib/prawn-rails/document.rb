@@ -1,8 +1,8 @@
-Gem::Specifcation.find_all{|s| s.name =~ /prawn/}.map(&:name).each do |gem_name|
-  case gem_name
-  when 'prawn-rails' then require 'prawn-rails/extension'
-  else require gem_name.gsub('-', '/')
-  end
+require 'prawn'
+require 'prawn_rails/extension'
+
+Gem.loaded_specs.select{|s| s.name.starts_with?('prawn-')}.map(&:name).each do |gem_name|
+  require gem_name.gsub('-', '/')
 end
 
 module PrawnRails
