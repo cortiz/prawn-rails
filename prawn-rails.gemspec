@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.name        = "prawn-rails"
   s.version     = PrawnRails::VERSION
   s.authors     = ["Carlos Ortiz", "Weston Ganger"]
-  s.email       = ["chrono.dark@gmail.com", "westonganger@gmail.com"]
+  s.email       = "weston@westonganger.com"
   s.homepage    = "https://github.com/cortiz/prawn-rails"
   s.summary     = "Prawn Handler for Rails"
   s.description = "Prawn Handler for Rails. Handles and registers pdf formats."
