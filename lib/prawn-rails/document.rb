@@ -1,7 +1,7 @@
 require 'prawn'
 require 'prawn-rails/extension'
 
-Gem.loaded_specs.select{|spec_name| spec_name.starts_with?('prawn-')}.map(&:name).each do |gem_name|
+Gem.loaded_specs.select{|spec_name| spec_name.starts_with?('prawn-')}.each do |gem_name|
   next if gem_name == 'prawn-rails' # Prevent circular loading
   require gem_name.gsub('-', '/')
 end
