@@ -3,7 +3,12 @@ require 'prawn-rails/extension'
 
 Gem.loaded_specs.keys.select{|spec_name| spec_name.starts_with?('prawn-')}.each do |gem_name|
   next if gem_name == 'prawn-rails' # Prevent circular loading
-  require gem_name.gsub('-', '/')
+  begin
+    require gem_name.gsub('-', '/')
+  rescue LoadError => e
+    puts e
+    puts e.backtrace
+  end
 end
 
 module PrawnRails
