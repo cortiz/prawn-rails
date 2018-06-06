@@ -3,6 +3,11 @@ require File.expand_path('../boot', __FILE__)
 require 'rails/all'
 
 Bundler.require
+
+silence_warnings do
+  require 'prawn-svg'
+end
+
 require "prawn-rails"
 
 module Dummy
@@ -40,6 +45,12 @@ module Dummy
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    if ActiveRecord.respond_to?(:gem_version)
+      gem_version = ActiveRecord.gem_version
+      if gem_version >= Gem::Version.new("5.2")
+        config.active_record.sqlite3.represent_boolean_as_integer = true
+      end
+    end
   end
 end
-
