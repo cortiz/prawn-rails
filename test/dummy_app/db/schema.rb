@@ -12,11 +12,4 @@
 
 ActiveRecord::Schema.define(:version => 20120221152352) do
 
-  create_table "products", :force => true do |t|
-    t.string   "name"
-    t.decimal  "price"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
 end

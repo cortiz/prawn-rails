@@ -1,7 +1,9 @@
 # Changelog
 
 * `v1.1.0` - UNRELEASED
+  - Breaking Change - Remove `html_strip` helper method. Use `ActionView::Base.full_sanitizer.sanitize(html_string)` if you were using this feature.
   - [#29](https://github.com/cortiz/prawn-rails/pull/29) - Require all installed prawn extensions
+  - Add legitimate tests
 
 * `v1.0.1`
   - Fix error when using `ActionController.render_to_string`

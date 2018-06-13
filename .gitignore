@@ -1,8 +1,8 @@
 .bundle/
 log/*.log
 pkg/
-test/dummy/db/*.sqlite3
-test/dummy/log/*.log
-test/dummy/tmp/
+test/dummy_app/db/*.sqlite3
+test/dummy_app/log/*.log
+test/dummy_app/tmp/
 Gemfile.lock
 vendor/
