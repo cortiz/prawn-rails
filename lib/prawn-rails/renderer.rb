@@ -2,6 +2,8 @@ require "prawn-rails/document"
 
 module PrawnRails
   class Renderer
+
+    ### WARNING: BE VERY CAREFUL IF EDITING THIS METHOD
     def self.call(template)
       %{
         @filename ||= "\#{controller.action_name}.pdf"
@@ -13,5 +15,6 @@ module PrawnRails
         #{template.source.strip}
       }
     end
+
   end
 end

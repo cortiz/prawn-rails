@@ -1,21 +1,10 @@
 require 'prawn'
-require 'prawn-rails/extension'
-
-Gem.loaded_specs.keys.select{|spec_name| spec_name.starts_with?('prawn-')}.each do |gem_name|
-  next if gem_name == 'prawn-rails' # Prevent circular loading
-
-  file = gem_name.gsub('-', '/')
-
-  begin
-    require file
-  rescue LoadError => _
-    STDERR.puts "#{__FILE__}:#{__LINE__}: warning: prawn-rails could not require plugin `#{gem_name}`"
-  end
-end
+require 'prawn-rails/load_prawn_plugins'
 
 module PrawnRails
 
-  # This derives from Prawn::Document in order to override defaults. Note that the Prawn::Document behaviour itself shouldn't be changed.
+  # This derives from Prawn::Document in order to override defaults. 
+  # Note that the Prawn::Document behaviour itself shouldn't be changed.
   class Document < Prawn::Document
     def initialize(opts = {})
       if PrawnRails.config.respond_to?(:to_h)
@@ -26,8 +15,7 @@ module PrawnRails
       super(default)
     end
 
-    # Typically text expects a string. But rails views have this interesting concept that they implicitly call 
-    # `to_s` on all the variables before rendering. So, passing an integer to text fails:
+    # Typically text expects a string. But Rails views have this interesting concept that they implicitly call `to_s` on all the variables before rendering. So, passing an integer to text fails:
     #
     # pdf.text 10       #=> fails because 10 is not a string
     # pdf.text 10.to_s  #=> works
@@ -38,5 +26,4 @@ module PrawnRails
     end
   end
 
-  Document.extensions << Extension
 end

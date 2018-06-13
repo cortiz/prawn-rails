@@ -43,8 +43,15 @@ module Dummy
     # Enable the asset pipeline
     config.assets.enabled = true
 
+    config.assets.quiet = true
+
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.generators.test_framework = false
+    config.generators.helper = false
+    config.generators.stylesheets = false
+    config.generators.javascripts = false
 
     if ActiveRecord.respond_to?(:gem_version)
       gem_version = ActiveRecord.gem_version

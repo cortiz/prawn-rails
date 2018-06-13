@@ -1,5 +1,4 @@
 Dummy::Application.routes.draw do
-  resources :products
-
   get "reports/sample"
+  get "reports/table"
 end

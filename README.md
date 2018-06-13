@@ -1,14 +1,14 @@
 # Prawn-Rails [![Gem Version](https://badge.fury.io/rb/prawn-rails.svg)](http://badge.fury.io/rb/prawn-rails)
 <a href='http://ko-fi.com/A552JBK' target='_blank'><img height='32' style='border:0px;height:32px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=a' border='0' alt='Buy Me a Coffee' /></a> 
 
-## Install
+# Install
 ```ruby
 gem 'prawn-rails'
 ```
 
 Note: `prawn` and `prawn-table` are dependencies of `prawn-rails` so there is no need to mention it in the projects Gemfile unless you want to use a specific version of either of those libraries.
 
-## Usage
+# Usage
 Create a view with `pdf` as format and `prawn` as handler so filename should look like `example.pdf.prawn`
 
 It provides a helper called `prawn_document` which builds a PrawnRails::Document with default options. You can override any options as you please. Example:
@@ -29,11 +29,7 @@ def show
 end
 ```
 
-## Built-in Helpers
-* *html_strip(html)*:
-Removes the html tags from a string
-
-## Default configuration
+# Default configuration
 
 Add a `prawn-rails.rb` config to your Rails app under `config/initializers` like this
 
@@ -59,7 +55,7 @@ pdf.start_new_page
 pdf.start_new_page size: "A4", page_layout: :portrait
 ```
 
-## Examples
+# Examples
 
 #### Hello World
 
@@ -92,12 +88,10 @@ prawn_document(page_layout: :landscape) do |pdf|
 end
 ```
 
-## Credits
-
-Created by Carlos Ortiz - @cortiz 
-
-<a href='http://ko-fi.com/A552JBK' target='_blank'><img height='32' style='border:0px;height:32px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=a' border='0' alt='Buy Me a Coffee' /></a> 
+# Credits
 
 Maintained by Weston Ganger - @westonganger
 
-Special thanks to @rwilliams, @sigmike, @smber1, @iffyuva
+Created by Carlos Ortiz - @cortiz
+
+<a href='http://ko-fi.com/A552JBK' target='_blank'><img height='32' style='border:0px;height:32px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=a' border='0' alt='Buy Me a Coffee' /></a> 
