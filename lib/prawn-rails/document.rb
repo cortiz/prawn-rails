@@ -1,5 +1,5 @@
 require 'prawn'
-require 'prawn-rails/load_prawn_plugins'
+require 'prawn/table'
 
 module PrawnRails
 
