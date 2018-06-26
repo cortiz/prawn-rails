@@ -61,4 +61,18 @@ class NavigationTest < ActionDispatch::IntegrationTest
 
     assert_equal(page_str, "1 2 3\n\n4 5 6\n\n7 8 9")
   end
+
+  test "render_to_string in mailer" do
+    mail = ReportsMailer.send_report
+    assert_equal(1, mail.attachments.size)
+
+    reader = PDF::Reader.new(StringIO.new(mail.attachments["report.pdf"].body.raw_source))
+    assert_not_nil(reader)
+    assert_equal(1, reader.page_count)
+
+    page_str = reader.pages[0].to_s
+
+    assert page_str.include?('Hello World!')
+    assert_not page_str.include?("<h1>Hello World!</h1>")
+  end
 end

@@ -8,7 +8,7 @@ module PrawnRails
       %{
         @filename ||= "\#{controller.action_name}.pdf"
 
-        unless controller.response.nil?
+        if controller.respond_to?(:response) && !controller.response.nil?
           controller.response.headers['Content-Disposition'] = "inline; filename=\\\"\#{@filename}\\\""
         end
 
