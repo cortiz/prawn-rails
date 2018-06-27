@@ -1,11 +1,15 @@
 require 'prawn'
-require 'prawn-rails/load_prawn_plugins'
+require 'prawn/table'
 
 module PrawnRails
 
   # This derives from Prawn::Document in order to override defaults. 
   # Note that the Prawn::Document behaviour itself shouldn't be changed.
   class Document < Prawn::Document
+    def self.extensions
+      Prawn::Document.extensions
+    end
+
     def initialize(opts = {})
       if PrawnRails.config.respond_to?(:to_h)
         default = PrawnRails.config.to_h.merge(opts)

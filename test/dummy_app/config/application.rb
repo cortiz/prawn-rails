@@ -4,10 +4,6 @@ require 'rails/all'
 
 Bundler.require
 
-silence_warnings do
-  require 'prawn-svg'
-end
-
 require "prawn-rails"
 
 module Dummy
