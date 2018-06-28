@@ -1,9 +1,15 @@
 # Changelog
 
 * `Unreleased`
+  - Nothing yet
+  
+* `v1.2.0`
+  - [PR #31](https://github.com/cortiz/prawn-rails/pull/31) - Use Prawn::Document.extensions in favor of custom plug-in loading. This removes all changes made in PR #29 and should behave much more appropriately now.
+  - [Undo PR #29](https://github.com/cortiz/prawn-rails/pull/31) - Use Prawn::Document.extensions in favor of custom plug-in loading
   - [PR #30](https://github.com/cortiz/prawn-rails/pull/30) -  Allow rendering in ActionMailer
+
 * `v1.1.0`
-  - [#29](https://github.com/cortiz/prawn-rails/pull/29) - Require all installed prawn extensions
+  - [PR #29](https://github.com/cortiz/prawn-rails/pull/29) - Require all installed prawn extensions
   - Removed unnecessary `html_strip` helper method. If you were using this feature, instead use Rails built in `strip_tags(html_str)` or `ActionView::Base.full_sanitizer.sanitize(html_str)`
   - Add legitimate tests
 
