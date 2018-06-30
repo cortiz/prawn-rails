@@ -1,7 +1,7 @@
 # Changelog
 
 * `Unreleased`
-  - Nothing yet
+  - Remove unnecessary option logic from `prawn_document` method
   
 * `v1.2.0`
   - [PR #31](https://github.com/cortiz/prawn-rails/pull/31) - Use Prawn::Document.extensions in favor of custom plug-in loading. This removes all changes made in PR #29 and should behave much more appropriately now.

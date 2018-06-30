@@ -10,13 +10,14 @@ module PrawnRails
       Prawn::Document.extensions
     end
 
-    def initialize(opts = {})
+    def initialize(options = {})
       if PrawnRails.config.respond_to?(:to_h)
-        default = PrawnRails.config.to_h.merge(opts)
+        options.reverse_merge!(PrawnRails.config.to_h)
       else
-        default = PrawnRails.config.marshal_dump.merge(opts)
+        options.reverse_merge!(PrawnRails.config.marshal_dump)
       end
-      super(default)
+
+      super(options)
     end
 
     # Typically text expects a string. But Rails views have this interesting concept that they implicitly call `to_s` on all the variables before rendering. So, passing an integer to text fails:
