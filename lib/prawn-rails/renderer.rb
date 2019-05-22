@@ -4,7 +4,7 @@ module PrawnRails
   class Renderer
 
     ### WARNING: BE VERY CAREFUL IF EDITING THIS METHOD
-    def self.call(template)
+    def self.call(template, source = nil)
       %{
         @filename ||= "\#{controller.action_name}.pdf"
 
@@ -12,7 +12,7 @@ module PrawnRails
           controller.response.headers['Content-Disposition'] = "inline; filename=\\\"\#{@filename}\\\""
         end
 
-        #{template.source.strip}
+        #{(source || template.source).strip}
       }
     end
 
