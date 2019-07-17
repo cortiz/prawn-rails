@@ -1,6 +1,9 @@
 # Changelog
 
 * `Unreleased`
+  - Nothing yet
+  
+* `v1.2.1`
   - [PR #39](https://github.com/cortiz/prawn-rails/pull/39) - Fix Rails 6 deprecation warning for single arity template handlers
   - Remove unnecessary option logic from `prawn_document` method
   
