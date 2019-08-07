@@ -32,7 +32,17 @@ prawn_document(filename: "my-file.pdf", disposition: "attachment") do |pdf|
 end
 ```
 
-This uses the [`Content-Disposition` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition#As_a_response_header_for_the_main_body). If you've already set this header, `prawn-rails` will *not* override it.
+This uses the [`Content-Disposition` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition#As_a_response_header_for_the_main_body). If you've already set this, `prawn-rails` will *not* override it. Here's an example of a pre-set header:
+
+```ruby
+def download
+  respond_to do |format|
+    format.pdf do
+      headers["Content-Disposition"] = "attachment; filename=\"charts-#{Time.now.to_i}.pdf\""
+    end
+  end
+end
+```
 
 You can also override the file's name from the controller via `@filename`:
 
