@@ -24,26 +24,25 @@ end
 
 No need to call `pdf.render`, it is called by `prawn_document`.
 
-You can customize the name of the generated PDF and the file's delivery format by adding a `prawn_options` method to your controller:
+You can customize the name of the generated PDF and the file's delivery format with the `:filename` and `:disposition` keys:
 
 ```ruby
-def prawn_options
-  {
-    filename: "my-new-document.pdf",
-    disposition: "attachment"
-  }
+prawn_document(filename: "my-file.pdf", disposition: "attachment") do |pdf|
+  pdf.text "Direct download incoming!"
 end
 ```
 
 This uses the [`Content-Disposition` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition#As_a_response_header_for_the_main_body). If you've already set this header, `prawn-rails` will *not* override it.
 
-If no options are given, the file's name will default to the name of the called controller action and the delivery format will default to `inline`. You can override the file's name on a per-action basis with `@filename`:
+You can also override the file's name from the controller via `@filename`:
 
 ```ruby
 def show
   @filename = "not-show.pdf"
 end
 ```
+
+If no options are given, the file's name will match to your browser's default and the delivery format will default to `inline`.
 
 # Default configuration
 
