@@ -1,7 +1,7 @@
 # Prawn-Rails
 <a href="https://badge.fury.io/rb/prawn-rails" target="_blank"><img height="21" style='border:0px;height:21px;' border='0' src="https://badge.fury.io/rb/prawn-rails.svg" alt="Gem Version"></a>
 <a href='https://rubygems.org/gems/prawn-rails' target='_blank'><img height='21' style='border:0px;height:21px;' src='https://ruby-gem-downloads-badge.herokuapp.com/prawn-rails?label=rubygems&type=total&total_label=downloads&color=brightgreen' border='0' alt='RubyGems Downloads' /></a>
-<a href='https://ko-fi.com/A5071NK' target='_blank'><img height='22' style='border:0px;height:22px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=a' border='0' alt='Buy Me a Coffee' /></a> 
+<a href='https://ko-fi.com/A5071NK' target='_blank'><img height='22' style='border:0px;height:22px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=a' border='0' alt='Buy Me a Coffee' /></a>
 
 
 # Install
@@ -12,7 +12,7 @@ gem 'prawn-rails'
 Note: `prawn` and `prawn-table` are dependencies of `prawn-rails` so there is no need to mention it in the projects Gemfile unless you want to use a specific version of either of those libraries.
 
 # Usage
-Create a view with `pdf` as format and `prawn` as handler so filename should look like `example.pdf.prawn`
+Create a view with `pdf` as format and `prawn` as handler so filename should look like `example.pdf.prawn`.
 
 It provides a helper called `prawn_document` which builds a PrawnRails::Document with default options. You can override any options as you please. Example:
 
@@ -22,19 +22,41 @@ prawn_document do |pdf|
 end
 ```
 
-No need to call `pdf.render`, it is called by `prawn_document`
+No need to call `pdf.render`, it is called by `prawn_document`.
 
-If you want to customize the name of the file should a user try to save it, you can specify the filename in your action:
+You can customize the name of the generated PDF and the file's delivery format with the `:filename` and `:disposition` keys:
 
 ```ruby
-def show
-  @filename = 'my_report.pdf'
+prawn_document(filename: "my-file.pdf", disposition: "attachment") do |pdf|
+  pdf.text "Direct download incoming!"
 end
 ```
 
+You can also override the content disposition using the [`Content-Disposition` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition#As_a_response_header_for_the_main_body). If you've already set this, `prawn-rails` will *not* override it. Here's an example of setting the header directly:
+
+```ruby
+def download
+  respond_to do |format|
+    format.pdf do
+      headers["Content-Disposition"] = "attachment; filename=\"charts-#{Time.now.to_i}.pdf\""
+    end
+  end
+end
+```
+
+You can also override the file's name from the controller via `@filename`:
+
+```ruby
+def show
+  @filename = "my_report.pdf"
+end
+```
+
+If no options are given, the file's name will match to your browser's default and the delivery format will default to `inline`.
+
 # Default configuration
 
-Add a `prawn-rails.rb` config to your Rails app under `config/initializers` like this
+Add a `prawn-rails.rb` config to your Rails app under `config/initializers` like this:
 
 ```ruby
 PrawnRails.config do |config|
@@ -44,11 +66,11 @@ PrawnRails.config do |config|
 end
 ```
 
-Please note that these are the defaults. 
+Please note that these are the defaults.
 
-For a list of all available options: [http://www.rubydoc.info/gems/prawn/Prawn%2FDocument:initialize](http://www.rubydoc.info/gems/prawn/Prawn%2FDocument:initialize). 
+For a list of all available options: [http://www.rubydoc.info/gems/prawn/Prawn%2FDocument:initialize](http://www.rubydoc.info/gems/prawn/Prawn%2FDocument:initialize).
 
-For a list of all metadata the the `:info` option supports, please see [https://github.com/prawnpdf/prawn/blob/master/manual/document_and_page_options/metadata.rb](https://github.com/prawnpdf/prawn/blob/master/manual/document_and_page_options/metadata.rb) 
+For a list of all metadata the the `:info` option supports, please see [https://github.com/prawnpdf/prawn/blob/master/manual/document_and_page_options/metadata.rb](https://github.com/prawnpdf/prawn/blob/master/manual/document_and_page_options/metadata.rb).
 
 If `skip_page_creation` is set to true then you have to create the first page yourself. Example:
 
@@ -62,7 +84,7 @@ pdf.start_new_page size: "A4", page_layout: :portrait
 
 #### Hello World
 
-```ruby	
+```ruby
 # hello.pdf.prawn
 
 prawn_document do |pdf|

@@ -1,5 +1,5 @@
 class ReportsController < ApplicationController
-  
+
   def sample
     @items = [
       {name: "Hello"},
@@ -14,5 +14,24 @@ class ReportsController < ApplicationController
       [7,8,9],
     ]
   end
- 
+
+  def custom_filename
+  end
+
+  def custom_disposition
+  end
+
+  def custom
+  end
+
+  def ivar_filename
+    @filename = "ivar-filename.pdf"
+    render :custom
+  end
+
+  def custom_headers
+    headers['Content-Disposition'] = "attachment;filename=\"custom-headers.pdf\""
+    render :custom
+  end
+
 end

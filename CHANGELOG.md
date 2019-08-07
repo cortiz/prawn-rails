@@ -2,11 +2,15 @@
 
 * `Unreleased`
   - Nothing yet
-  
+
+* `v1.3.0 - Unreleased`
+  - [PR #40](https://github.com/cortiz/prawn-rails/pull/40) - Add `:filename` and `:disposition` options for `prawn_document
+  - [PR #40](https://github.com/cortiz/prawn-rails/pull/40) - Do not override existing`Content-Disposition` headers
+
 * `v1.2.1`
   - [PR #39](https://github.com/cortiz/prawn-rails/pull/39) - Fix Rails 6 deprecation warning for single arity template handlers
   - Remove unnecessary option logic from `prawn_document` method
-  
+
 * `v1.2.0`
   - [PR #31](https://github.com/cortiz/prawn-rails/pull/31) - Use Prawn::Document.extensions in favor of custom plug-in loading. This removes all changes made in PR #29 and should behave much more appropriately now.
   - [Undo PR #29](https://github.com/cortiz/prawn-rails/pull/31) - Use Prawn::Document.extensions in favor of custom plug-in loading
@@ -28,5 +32,5 @@
 
 * `v0.1.1`
 * `v0.1.0`
-* `v0.0.2` 
+* `v0.0.2`
 * `v0.0.1`
