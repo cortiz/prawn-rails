@@ -48,7 +48,7 @@ You can also override the file's name from the controller via `@filename`:
 
 ```ruby
 def show
-  @filename = "not-show.pdf"
+  @filename = "my_report.pdf"
 end
 ```
 
