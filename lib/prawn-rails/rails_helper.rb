@@ -17,5 +17,30 @@ module PrawnRails
       pdf.render
     end
 
+    def set_prawn_headers
+      # Ignore headers when we're not rendering from an ActionController context.
+      return unless controller.respond_to?(:response) && !controller.response.nil?
+
+      options = get_prawn_options
+
+      # Don't override the 'Content-Disposition' if we've chosen to set it elsewhere.
+      controller.response.headers['Content-Disposition'] ||= "#{options[:disposition]}; filename=\"#{options[:filename]}\""
+    end
+
+    def get_prawn_options
+      if controller.respond_to?(:prawn_options)
+        controller.send(:prawn_options)
+      else
+        default_prawn_options
+      end
+    end
+
+    def default_prawn_options
+      {
+        filename: @filename || "#{controller.action_name}.pdf",
+        disposition: "inline"
+      }
+    end
+
   end
 end
