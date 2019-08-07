@@ -7,8 +7,6 @@ class PrawnRailsTest < ActiveSupport::TestCase
   include PrawnRails::RailsHelper
 
   test "text can take non strings" do
-    @filename = ""
-
     output = prawn_document do |pdf|
       pdf.text "Number:"
       pdf.text 10

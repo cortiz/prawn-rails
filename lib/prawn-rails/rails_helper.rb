@@ -19,7 +19,7 @@ module PrawnRails
 
     def set_prawn_headers
       # Ignore headers when we're not rendering from an ActionController context.
-      return unless controller.respond_to?(:response) && !controller.response.nil?
+      return unless defined?(controller) && controller.respond_to?(:response) && !controller.response.nil?
 
       options = get_prawn_options
 
@@ -28,7 +28,7 @@ module PrawnRails
     end
 
     def get_prawn_options
-      if controller.respond_to?(:prawn_options)
+      if defined?(controller) && controller.respond_to?(:prawn_options)
         controller.send(:prawn_options)
       else
         default_prawn_options
@@ -37,9 +37,17 @@ module PrawnRails
 
     def default_prawn_options
       {
-        filename: @filename || "#{controller.action_name}.pdf",
+        filename: default_filename,
         disposition: "inline"
       }
+    end
+
+    def default_filename
+      if defined?(controller)
+        @filename || "#{controller.action_name}.pdf"
+      else
+        "download.pdf"
+      end
     end
 
   end
