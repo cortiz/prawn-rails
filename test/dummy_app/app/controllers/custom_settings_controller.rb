@@ -1,4 +1,4 @@
-class CustomReportsController < ApplicationController
+class CustomSettingsController < ApplicationController
 
   def sample
   end

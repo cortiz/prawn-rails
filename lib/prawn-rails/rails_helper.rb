@@ -25,7 +25,7 @@ module PrawnRails
 
     def get_prawn_options
       if defined?(controller) && controller.respond_to?(:prawn_options)
-        controller.send(:prawn_options)
+        controller.send(:prawn_options).reverse_merge(default_prawn_options)
       else
         default_prawn_options
       end

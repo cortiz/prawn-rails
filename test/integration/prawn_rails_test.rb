@@ -70,7 +70,7 @@ class NavigationTest < ActionDispatch::IntegrationTest
   end
 
   test "Sets headers based on controller's prawn_options" do
-    get '/custom_reports/sample.pdf'
+    get '/custom_settings/sample.pdf'
 
     disposition_header = @response.headers["Content-Disposition"]
     assert disposition_header.include?("attachment")
@@ -85,13 +85,22 @@ class NavigationTest < ActionDispatch::IntegrationTest
   end
 
   test "Does not override an existing 'Content-Disposition' header" do
-    get '/custom_reports/custom_headers_sample.pdf'
+    get '/custom_settings/custom_headers_sample.pdf'
 
     disposition_header = @response.headers["Content-Disposition"]
     assert disposition_header.include?("inline")
     assert disposition_header.include?("manually-set.pdf")
     assert_not disposition_header.include?("attachment")
     assert_not disposition_header.include?("custom.pdf")
+  end
+
+  test "Falls back to default keys if 'prawn_options' is incomplete" do
+    get '/incomplete_settings/sample.pdf'
+
+    disposition_header = @response.headers["Content-Disposition"]
+    assert disposition_header.include?("inline")
+    assert disposition_header.include?("very-specific.pdf")
+    assert_not disposition_header.include?("sample.pdf")
   end
 
   test "render_to_string in mailer" do
