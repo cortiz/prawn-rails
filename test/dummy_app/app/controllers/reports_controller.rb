@@ -1,12 +1,10 @@
 class ReportsController < ApplicationController
-  before_action :set_items, only: [:sample, :custom_filename_sample]
 
   def sample
-  end
-
-  def custom_filename_sample
-    @filename = "my-cool-filename.pdf"
-    render :sample
+    @items = [
+      {name: "Hello"},
+      {name: "World"},
+    ]
   end
 
   def table
@@ -17,11 +15,23 @@ class ReportsController < ApplicationController
     ]
   end
 
-  def set_items
-    @items = [
-      {name: "Hello"},
-      {name: "World"},
-    ]
+  def custom_filename
+  end
+
+  def custom_disposition
+  end
+
+  def custom
+  end
+
+  def ivar_filename
+    @filename = "ivar-filename.pdf"
+    render :custom
+  end
+
+  def custom_headers
+    headers['Content-Disposition'] = "attachment;filename=\"custom-headers.pdf\""
+    render :custom
   end
 
 end

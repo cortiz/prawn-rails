@@ -38,7 +38,6 @@ class NavigationTest < ActionDispatch::IntegrationTest
   test "Renders sample pdf action" do
     get '/reports/sample', params: {format: :pdf}
     assert_response :success
-    assert_not @response.body.include?("<h1>Hello World!</h1>")
 
     confirm_pdf_format(@response.body)
   end
@@ -57,54 +56,44 @@ class NavigationTest < ActionDispatch::IntegrationTest
     assert_equal(page_str, "1 2 3\n\n4 5 6\n\n7 8 9")
   end
 
-  test "Uses default prawn_options when none are available" do
-    get '/reports/sample.pdf'
-
-    disposition_header = @response.headers["Content-Disposition"]
-    assert disposition_header.include?("inline")
-    assert disposition_header.include?("sample.pdf")
-
-    confirm_pdf_format(@response.body)
-  end
-
-  test "Sets headers based on controller's prawn_options" do
-    get '/custom_settings/sample.pdf'
+  test "Sets file name from '@filename' when present" do
+    get '/reports/ivar_filename.pdf'
 
     disposition_header = @response.headers["Content-Disposition"]
     assert disposition_header.include?("attachment")
-    assert disposition_header.include?("custom.pdf")
-
-    confirm_pdf_format(@response.body)
+    assert disposition_header.include?("ivar-filename.pdf")
   end
 
-  test "Prefers the '@filename' variable when set" do
-    get '/reports/custom_filename_sample.pdf'
+  test "Maintains existing 'Content-Disposition' header" do
+    get '/reports/custom_headers.pdf'
 
     disposition_header = @response.headers["Content-Disposition"]
-    assert disposition_header.include?("my-cool-filename.pdf")
-
-    confirm_pdf_format(@response.body)
+    assert disposition_header.include?("attachment")
+    assert disposition_header.include?("custom-headers.pdf")
   end
 
-  test "Does not override an existing 'Content-Disposition' header" do
-    get '/custom_settings/custom_headers_sample.pdf'
+  test "Respects the 'filename' option alone" do
+    get '/reports/custom_filename.pdf'
 
     disposition_header = @response.headers["Content-Disposition"]
     assert disposition_header.include?("inline")
-    assert disposition_header.include?("manually-set.pdf")
-    assert_not disposition_header.include?("attachment")
-    assert_not disposition_header.include?("custom.pdf")
-
-    confirm_pdf_format(@response.body)
+    assert disposition_header.include?("from-options.pdf")
   end
 
-  test "Falls back to default keys if 'prawn_options' is incomplete" do
-    get '/incomplete_settings/sample.pdf'
+  test "Respects the 'disposition' option alone" do
+    get '/reports/custom_disposition.pdf'
 
     disposition_header = @response.headers["Content-Disposition"]
-    assert disposition_header.include?("inline")
-    assert disposition_header.include?("very-specific.pdf")
-    assert_not disposition_header.include?("sample.pdf")
+    assert disposition_header.include?("attachment")
+    assert_not disposition_header.include?("filename")
+  end
+
+  test "Respects both options on 'prawn-document' together" do
+    get '/reports/custom.pdf'
+
+    disposition_header = @response.headers["Content-Disposition"]
+    assert disposition_header.include?("attachment")
+    assert disposition_header.include?("from-options.pdf")
   end
 
   test "render_to_string in mailer" do
