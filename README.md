@@ -32,7 +32,7 @@ prawn_document(filename: "my-file.pdf", disposition: "attachment") do |pdf|
 end
 ```
 
-This uses the [`Content-Disposition` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition#As_a_response_header_for_the_main_body). If you've already set this, `prawn-rails` will *not* override it. Here's an example of a pre-set header:
+You can also override the content disposition using the [`Content-Disposition` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition#As_a_response_header_for_the_main_body). If you've already set this, `prawn-rails` will *not* override it. Here's an example of setting the header directly:
 
 ```ruby
 def download
