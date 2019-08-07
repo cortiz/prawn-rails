@@ -4,11 +4,7 @@ module PrawnRails
   module RailsHelper
 
     def prawn_document(options={})
-      options.reverse_merge!({
-        info: {
-          Title: get_prawn_options[:filename].sub(/\.(p|P)(d|D)(f|F)$/, '')
-        }
-      })
+      options.reverse_merge!(get_metadata)
 
       pdf = PrawnRails::Document.new(options)
 
@@ -33,6 +29,14 @@ module PrawnRails
       else
         default_prawn_options
       end
+    end
+
+    def get_metadata
+      {
+        info: {
+          Title: get_prawn_options[:filename].sub(/\.pdf$/i, '')
+        }
+      }
     end
 
     def default_prawn_options
