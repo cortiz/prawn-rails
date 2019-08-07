@@ -3,7 +3,7 @@
 * `Unreleased`
   - Nothing yet
 
-* `v1.3.0`
+* `v1.3.0 - Unreleased`
   - [PR #40](https://github.com/cortiz/prawn-rails/pull/40) - Support `:filename` and `:disposition` options for `prawn_document` and stop overwriting existing headers.
 
 * `v1.2.1`
