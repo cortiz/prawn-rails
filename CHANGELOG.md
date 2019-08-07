@@ -4,7 +4,8 @@
   - Nothing yet
 
 * `v1.3.0 - Unreleased`
-  - [PR #40](https://github.com/cortiz/prawn-rails/pull/40) - Support `:filename` and `:disposition` options for `prawn_document` and stop overwriting existing headers.
+  - [PR #40](https://github.com/cortiz/prawn-rails/pull/40) - Add `:filename` and `:disposition` options for `prawn_document
+  - [PR #40](https://github.com/cortiz/prawn-rails/pull/40) - Do not override existing`Content-Disposition` headers
 
 * `v1.2.1`
   - [PR #39](https://github.com/cortiz/prawn-rails/pull/39) - Fix Rails 6 deprecation warning for single arity template handlers
