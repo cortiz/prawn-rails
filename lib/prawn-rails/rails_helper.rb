@@ -6,7 +6,7 @@ module PrawnRails
     def prawn_document(options={})
       options.reverse_merge!({
         info: {
-          Title: @filename.sub(/\.(p|P)(d|D)(f|F)$/, '')
+          Title: get_prawn_options[:filename].sub(/\.(p|P)(d|D)(f|F)$/, '')
         }
       })
 
