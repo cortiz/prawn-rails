@@ -18,4 +18,9 @@ class PrawnRailsTest < ActiveSupport::TestCase
     page = reader.page(1).to_s
     assert page.include?("Number:\n10")
   end
+
+  test "with no controller, we use the default options" do
+    assert_equal get_prawn_options, default_prawn_options
+    assert_equal default_filename, "download.pdf"
+  end
 end

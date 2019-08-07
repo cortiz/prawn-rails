@@ -17,7 +17,6 @@ class NavigationTest < ActionDispatch::IntegrationTest
   test "Renders html action" do
     get '/reports/sample'
     assert_response :success
-    #assert @response.body.include?("<h1>Hello World!</h1>")
     assert_match("<h1>Hello World!</h1>", @response.body)
   end
 
@@ -60,6 +59,39 @@ class NavigationTest < ActionDispatch::IntegrationTest
     page_str = reader.pages[0].to_s
 
     assert_equal(page_str, "1 2 3\n\n4 5 6\n\n7 8 9")
+  end
+
+  test "Uses default prawn_options when none are available" do
+    get '/reports/sample.pdf'
+
+    disposition_header = @response.headers["Content-Disposition"]
+    assert disposition_header.include?("inline")
+    assert disposition_header.include?("sample.pdf")
+  end
+
+  test "Sets headers based on controller's prawn_options" do
+    get '/custom_reports/sample.pdf'
+
+    disposition_header = @response.headers["Content-Disposition"]
+    assert disposition_header.include?("attachment")
+    assert disposition_header.include?("custom.pdf")
+  end
+
+  test "Prefers the '@filename' variable when set" do
+    get '/reports/custom_filename_sample.pdf'
+
+    disposition_header = @response.headers["Content-Disposition"]
+    assert disposition_header.include?("my-cool-filename.pdf")
+  end
+
+  test "Does not override an existing 'Content-Disposition' header" do
+    get '/custom_reports/custom_headers_sample.pdf'
+
+    disposition_header = @response.headers["Content-Disposition"]
+    assert disposition_header.include?("inline")
+    assert disposition_header.include?("manually-set.pdf")
+    assert_not disposition_header.include?("attachment")
+    assert_not disposition_header.include?("custom.pdf")
   end
 
   test "render_to_string in mailer" do

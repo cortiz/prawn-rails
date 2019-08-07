@@ -44,7 +44,7 @@ module PrawnRails
 
     def default_filename
       if defined?(controller)
-        @filename || "#{controller.action_name}.pdf"
+        @filename ||= "#{controller.action_name}.pdf"
       else
         "download.pdf"
       end

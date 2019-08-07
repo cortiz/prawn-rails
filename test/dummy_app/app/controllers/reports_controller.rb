@@ -1,10 +1,12 @@
 class ReportsController < ApplicationController
-  
+  before_action :set_items, only: [:sample, :custom_filename_sample]
+
   def sample
-    @items = [
-      {name: "Hello"},
-      {name: "World"},
-    ]
+  end
+
+  def custom_filename_sample
+    @filename = "my-cool-filename.pdf"
+    render :sample
   end
 
   def table
@@ -14,5 +16,12 @@ class ReportsController < ApplicationController
       [7,8,9],
     ]
   end
- 
+
+  def set_items
+    @items = [
+      {name: "Hello"},
+      {name: "World"},
+    ]
+  end
+
 end
