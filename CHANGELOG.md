@@ -1,7 +1,7 @@
 # Changelog
 
 * `Unreleased`
-  - Nothing yet
+  - [PR #41](https://github.com/cortiz/prawn-rails/pull/41) - Depend on `railsties` instead of `rails` gem to avoid pulling in unnecessary dependencies such as action_cable, etc.
 
 * `v1.3.0`
   - [PR #40](https://github.com/cortiz/prawn-rails/pull/40) - Add `:filename` and `:disposition` options for `prawn_document
