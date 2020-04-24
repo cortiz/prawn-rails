@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "prawn"
   s.add_dependency "prawn-table"
-  s.add_dependency "rails", ">= 3.1.0"
+  s.add_dependency "railties", ">= 3.1.0"
 
   s.add_development_dependency "pdf-reader"
   s.add_development_dependency 'rake'
