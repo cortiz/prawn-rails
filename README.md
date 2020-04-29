@@ -1,7 +1,7 @@
 # Prawn-Rails
 <a href="https://badge.fury.io/rb/prawn-rails" target="_blank"><img height="21" style='border:0px;height:21px;' border='0' src="https://badge.fury.io/rb/prawn-rails.svg" alt="Gem Version"></a>
+<a href='https://travis-ci.org/cortiz/prawn-rails' target='_blank'><img height='21' style='border:0px;height:21px;' src='https://api.travis-ci.org/cortiz/prawn-rails.svg?branch=master' border='0' alt='Build Status' /></a>
 <a href='https://rubygems.org/gems/prawn-rails' target='_blank'><img height='21' style='border:0px;height:21px;' src='https://ruby-gem-downloads-badge.herokuapp.com/prawn-rails?label=rubygems&type=total&total_label=downloads&color=brightgreen' border='0' alt='RubyGems Downloads' /></a>
-<a href='https://ko-fi.com/A5071NK' target='_blank'><img height='22' style='border:0px;height:22px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=a' border='0' alt='Buy Me a Coffee' /></a>
 
 
 # Install
