@@ -6,3 +6,4 @@ test/dummy_app/log/*.log
 test/dummy_app/tmp/
 Gemfile.lock
 vendor/
+gemfiles/*.lock

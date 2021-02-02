@@ -22,10 +22,15 @@ Gem::Specification.new do |s|
   s.add_dependency "prawn-table"
   s.add_dependency "railties", ">= 3.1.0"
 
-  s.add_development_dependency "rails", "~>6.0"
   s.add_development_dependency "pdf-reader"
   s.add_development_dependency 'rake'
   s.add_development_dependency 'minitest'
   s.add_development_dependency 'bundler'
+  s.add_development_dependency "rails"
   s.add_development_dependency 'sqlite3'
+  s.add_development_dependency 'appraisal'
+
+  if RUBY_VERSION.to_f >= 2.4
+    s.add_development_dependency 'warning'
+  end
 end
