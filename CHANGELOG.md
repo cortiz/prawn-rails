@@ -1,6 +1,9 @@
 # Changelog
 
 * `Unreleased`
+  - Nothing yet
+
+* `v1.4.0`
   - [PR #41](https://github.com/cortiz/prawn-rails/pull/41) - Depend on `railsties` instead of `rails` gem to avoid pulling in unnecessary dependencies such as action_cable, etc.
 
 * `v1.3.0`
