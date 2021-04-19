@@ -11,6 +11,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/cortiz/prawn-rails"
   s.summary     = "Prawn Handler for Rails"
   s.description = "Prawn Handler for Rails. Handles and registers pdf formats."
+  s.license     = "MIT"
 
   s.files = Dir["{lib}/**/*"] + ["LICENSE", "Rakefile", "README.md", "CHANGELOG.md"]
 
