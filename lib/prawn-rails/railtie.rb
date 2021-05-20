@@ -3,7 +3,7 @@ require "prawn-rails/rails_helper"
 require "prawn-rails/renderer"
 
 module PrawnRails
-  class Engine < Rails::Engine
+  class Railtie < Rails::Railtie
     ActionView::Base.send(:include, PrawnRails::RailsHelper)
     ActionView::Template.register_template_handler(:prawn, PrawnRails::Renderer)
 
