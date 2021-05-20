@@ -1,7 +1,7 @@
 # Changelog
 
 * `Unreleased` - [View Diff](https://github.com/cortiz/prawn-rails/compare/v1.4.0...master)
-  - [ef08001](https://github.com/cortiz/prawn-rails/commit/ef08001) - Fix bug in v1.4.0, where PDF's wouldnt open as `inline` within the browser. Problem was due to incomplete switch to Railsties from [PR #41](https://github.com/cortiz/prawn-rails/pull/41)
+  - [7575606](https://github.com/cortiz/prawn-rails/commit/7575606) - Fix bug in v1.4.0, where PDF's wouldnt open as `inline` within the browser. Problem was due to incomplete switch to Railsties from [PR #41](https://github.com/cortiz/prawn-rails/pull/41)
 
 * `v1.4.0` - [View Diff](https://github.com/cortiz/prawn-rails/compare/v1.3.0...v1.4.0)
   - [PR #41](https://github.com/cortiz/prawn-rails/pull/41) - Depend on `railsties` instead of `rails` gem to avoid pulling in unnecessary dependencies such as action_cable, etc.
