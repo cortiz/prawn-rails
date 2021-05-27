@@ -21,7 +21,7 @@ module PrawnRails
 
       yield pdf if block_given?
 
-      pdf.render
+      return pdf.render
     end
 
     def get_metadata
