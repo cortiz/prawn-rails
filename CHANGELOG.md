@@ -1,6 +1,9 @@
 # Changelog
 
-* `Unreleased` - [View Diff](https://github.com/cortiz/prawn-rails/compare/v1.4.1...master)
+* `Unreleased` - [View Diff](https://github.com/cortiz/prawn-rails/compare/v1.4.2...master)
+  - Nothing yet
+
+* `v1.4.2` - [View Diff](https://github.com/cortiz/prawn-rails/compare/v1.4.1...v1.4.2)
   - Remove dependency on `railsties` and instead only depend on `actionview`
 
 * `v1.4.1` - [View Diff](https://github.com/cortiz/prawn-rails/compare/v1.4.0...v1.4.1)
