@@ -1,7 +1,9 @@
 # Changelog
 
 * `Unreleased` - [View Diff](https://github.com/cortiz/prawn-rails/compare/v1.4.2...master)
-  - Nothing yet
+  - Remove unnecessary method `get_metadata` from `PrawnRailsHelper` which was getting included into `ActionView::Base`
+  - Remove unnecessary rescue in `PrawnRails.config`
+  - Remove redundant method `PrawnRails::Document.extensions`
 
 * `v1.4.2` - [View Diff](https://github.com/cortiz/prawn-rails/compare/v1.4.1...v1.4.2)
   - Remove dependency on `railsties` and instead only depend on `actionview`

@@ -1,10 +1,6 @@
-### FOR RAILS TESTS
-
 require 'test_helper'
-require 'pdf/reader'
 
 class NavigationTest < ActionDispatch::IntegrationTest
-  fixtures :all
 
   def confirm_pdf_format(source)
     reader = PDF::Reader.new(StringIO.new(source))
@@ -15,38 +11,34 @@ class NavigationTest < ActionDispatch::IntegrationTest
     assert_not page_str.include?("<h1>Hello World!</h1>")
   end
 
-  test "Registers :pdf mime type" do
+  test "registers :pdf mime type" do
     assert Mime::Type.lookup_by_extension(:pdf)
   end
 
-  test "Registers :prawn template handler" do
+  test "registers :prawn template handler" do
     assert ActionView::Template::Handlers.extensions.include?(:prawn)
   end
 
-  test "Renders html action" do
+  test "renders html action" do
     get '/reports/sample'
     assert_response :success
     assert_match("<h1>Hello World!</h1>", @response.body)
   end
 
-  test "Renders pdf to string" do
-    if RUBY_VERSION.to_f >= 2.7
-      skip "Test failing, couldnt figure it out, PR wanted"
-    end
-
-    pdf_str = ApplicationController.new.render_to_string("reports/sample.pdf", locals: {:@items => []})
+  test "renders pdf to string" do
+    pdf_str = ApplicationController.render(template: "reports/sample", formats: [:pdf], assigns: {:items => []})
 
     confirm_pdf_format(pdf_str)
   end
 
-  test "Renders sample pdf action" do
+  test "renders sample pdf action" do
     get '/reports/sample', params: {format: :pdf}
     assert_response :success
 
     confirm_pdf_format(@response.body)
   end
 
-  test "Renders table pdf action using auto-required plugin Prawn-Table" do
+  test "renders table pdf action using auto-required plugin prawn-table" do
     get '/reports/table', params: {format: :pdf}
     assert_response :success
 
@@ -60,7 +52,7 @@ class NavigationTest < ActionDispatch::IntegrationTest
     assert_equal(page_str, "1 2 3\n\n4 5 6\n\n7 8 9")
   end
 
-  test "Sets file name from '@filename' when present" do
+  test "sets file name from '@filename' when present" do
     get '/reports/ivar_filename.pdf'
 
     disposition_header = @response.headers["Content-Disposition"]
@@ -68,7 +60,7 @@ class NavigationTest < ActionDispatch::IntegrationTest
     assert disposition_header.include?("ivar-filename.pdf")
   end
 
-  test "Maintains existing 'Content-Disposition' header" do
+  test "maintains existing 'Content-Disposition' header" do
     get '/reports/custom_headers.pdf'
 
     disposition_header = @response.headers["Content-Disposition"]
@@ -76,7 +68,7 @@ class NavigationTest < ActionDispatch::IntegrationTest
     assert disposition_header.include?("custom-headers.pdf")
   end
 
-  test "Respects the 'filename' option alone" do
+  test "respects the 'filename' option alone" do
     get '/reports/custom_filename.pdf'
 
     disposition_header = @response.headers["Content-Disposition"]
@@ -92,7 +84,7 @@ class NavigationTest < ActionDispatch::IntegrationTest
     assert_not disposition_header.include?("filename")
   end
 
-  test "Respects both options on 'prawn-document' together" do
+  test "respects both options on 'prawn-document' together" do
     get '/reports/custom.pdf'
 
     disposition_header = @response.headers["Content-Disposition"]

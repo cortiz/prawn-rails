@@ -103,6 +103,7 @@ prawn_document do |pdf|
   pdf.table @products.collect{|p| [p.name,p.price]}
 end
 ```
+
 #### Using Custom options
 
 ```ruby
@@ -112,6 +113,19 @@ prawn_document(page_layout: :landscape) do |pdf|
   pdf.text 'Landscape Page!'
 end
 ```
+
+#### Without using the prawn_document helper
+
+```ruby
+doc = PrawnRails::Document.new(page_layout: :landscape)
+
+doc.text "Page 1"
+doc.start_new_page
+doc.text "Page 2"
+
+pdf_str = doc.render
+```
+
 
 # Credits
 

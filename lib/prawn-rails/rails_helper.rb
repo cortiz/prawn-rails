@@ -6,7 +6,13 @@ module PrawnRails
     def prawn_document(options={})
       @filename ||= options[:filename]
 
-      options.reverse_merge!(get_metadata)
+      metadata = {}
+
+      if @filename
+        metadata[:info] = { Title: @filename.sub(/\.pdf$/i, '') }
+      end
+
+      options.reverse_merge!(metadata)
 
       pdf = PrawnRails::Document.new(options)
 
@@ -22,16 +28,6 @@ module PrawnRails
       yield pdf if block_given?
 
       return pdf.render
-    end
-
-    def get_metadata
-      return {} unless @filename
-
-      {
-        info: {
-          Title: @filename.sub(/\.pdf$/i, '')
-        }
-      }
     end
 
   end
