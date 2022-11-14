@@ -15,8 +15,6 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{lib}/**/*"] + ["LICENSE", "Rakefile", "README.md", "CHANGELOG.md"]
 
-  s.test_files = Dir["test/**/*"]
-
   s.required_ruby_version = '>= 1.9.3'
 
   s.add_dependency "prawn"
