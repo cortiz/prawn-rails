@@ -1,7 +1,7 @@
 # Prawn-Rails
 <a href="https://badge.fury.io/rb/prawn-rails" target="_blank"><img height="21" style='border:0px;height:21px;' border='0' src="https://badge.fury.io/rb/prawn-rails.svg" alt="Gem Version"></a>
 <a href='https://github.com/cortiz/prawn-rails/actions' target='_blank'><img src="https://github.com/cortiz/prawn-rails/workflows/Tests/badge.svg" style="max-width:100%;" height='21' style='border:0px;height:21px;' border='0' alt="CI Status"></a>
-<a href='https://rubygems.org/gems/prawn-rails' target='_blank'><img height='21' style='border:0px;height:21px;' src='https://ruby-gem-downloads-badge.herokuapp.com/prawn-rails?label=rubygems&type=total&total_label=downloads&color=brightgreen' border='0' alt='RubyGems Downloads' /></a>
+<a href='https://rubygems.org/gems/prawn-rails' target='_blank'><img height='21' style='border:0px;height:21px;' src='https://img.shields.io/gem/dt/prawn-rails?color=brightgreen&label=Rubygems%20Downloads' border='0' alt='RubyGems Downloads' /></a>
 
 
 # Install
