@@ -14,7 +14,7 @@ rescue LoadError
   # Do nothing
 end
 
-if RUBY_VERSION.to_f >= 2.7
+if RUBY_VERSION.to_f >= 3.1
   require "matrix"
 end
 
