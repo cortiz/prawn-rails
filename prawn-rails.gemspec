@@ -26,6 +26,10 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'minitest'
   s.add_development_dependency 'pry'
 
+  if RUBY_VERSION.to_f >= 3.3
+    s.add_dependency "ostruct"
+  end
+
   if RUBY_VERSION.to_f >= 3.1
     s.add_development_dependency 'matrix'
   end
