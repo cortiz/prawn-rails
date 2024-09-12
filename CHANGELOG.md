@@ -1,6 +1,9 @@
 # Changelog
 
-* `Unreleased` - [View Diff](https://github.com/cortiz/prawn-rails/compare/v1.4.2...master)
+* `Unreleased` - [View Diff](https://github.com/cortiz/prawn-rails/compare/v1.5.0...master)
+  - Nothing yet
+
+* `v1.5.0` - [View Diff](https://github.com/cortiz/prawn-rails/compare/v1.4.2...v1.5.0)
   - [#52](https://github.com/cortiz/prawn-rails/pull/52) - Add active_support as a dependency and use the active_support lazy load hooks
   - [#51](https://github.com/cortiz/prawn-rails/pull/51) - Remove usage of openstruct for config object
   - Remove unnecessary method `get_metadata` from `PrawnRailsHelper` which was getting included into `ActionView::Base`
