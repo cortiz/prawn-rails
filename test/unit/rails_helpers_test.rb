@@ -1,5 +1,7 @@
 require 'test_helper'
 
+require "prawn-rails/rails_helper"
+
 class RailsHelperTest < ActiveSupport::TestCase
   include PrawnRails::RailsHelper
 
