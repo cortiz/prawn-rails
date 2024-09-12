@@ -4,7 +4,7 @@ require 'prawn/table'
 module PrawnRails
   class Document < Prawn::Document
     def initialize(options = {})
-      options = PrawnRails.config.marshal_dump.merge(options) ### For Ruby 1.9.3 support, use `marshal_dump` instead of `to_h`
+      options = PrawnRails.config.merge(options)
 
       super(options)
     end

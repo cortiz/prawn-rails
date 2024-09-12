@@ -19,7 +19,7 @@ class ConfigTest < ActiveSupport::TestCase
   end
 
   test "has a default config" do
-    assert_equal PrawnRails.config.to_h, {page_layout: :portrait, page_size: "A4", skip_page_creation: false}
+    assert_equal PrawnRails.config.to_h.symbolize_keys, {page_layout: :portrait, page_size: "A4", skip_page_creation: false}
   end
 
   test "config can be set with block syntax" do
@@ -28,7 +28,7 @@ class ConfigTest < ActiveSupport::TestCase
       config.page_size = "A8"
     end
 
-    assert_equal PrawnRails.config.to_h, {page_layout: :landscape, page_size: "A8", skip_page_creation: false}
+    assert_equal PrawnRails.config.to_h.symbolize_keys, {page_layout: :landscape, page_size: "A8", skip_page_creation: false}
   end
 
 end
