@@ -19,13 +19,13 @@ class DocumentTest < ActiveSupport::TestCase
 
   class ConfigTest < DocumentTest
     def setup
-      @original_config = PrawnRails.config.to_h
+      @original_config = PrawnRails.config.clone
     end
 
     def teardown
       PrawnRails.config do |config|
         config.to_h.keys.each do |key|
-          config.delete_field(key)
+          config.delete(key)
         end
 
         @original_config.to_h.each do |k,v|

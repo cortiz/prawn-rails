@@ -5,13 +5,19 @@ module PrawnRails
     def method_missing(method_name, *args)
       # to replace behaviour of previous openstruct-based configuration object
 
-      method_name = method_name.to_s
+      if method_name.to_s.end_with?("=")
+        if args.size >= 2
+          super # raise normal exception
+        end
 
-      if method_name.end_with?("=")
-        key = method_name.sub(/=$/, "")
+        key = method_name.to_s.sub(/=$/, "")
         self[key] = args.first
       else
-        self[method_name]
+        if args.any?
+          super # raise normal exception
+        else
+          self[method_name]
+        end
       end
     end
   end
