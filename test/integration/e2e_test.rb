@@ -12,10 +12,14 @@ class NavigationTest < ActionDispatch::IntegrationTest
   end
 
   test "registers :pdf mime type" do
+    get "/reports/sample" # trigger action view load
+
     assert Mime::Type.lookup_by_extension(:pdf)
   end
 
   test "registers :prawn template handler" do
+    get "/reports/sample" # trigger action view load
+
     assert ActionView::Template::Handlers.extensions.include?(:prawn)
   end
 
