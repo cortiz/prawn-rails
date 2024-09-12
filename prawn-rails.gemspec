@@ -20,17 +20,15 @@ Gem::Specification.new do |s|
   s.add_dependency "prawn"
   s.add_dependency "prawn-table"
   s.add_dependency "actionview", ">= 3.1.0"
+  s.add_dependency "activesupport", ">= 3.1.0"
 
   s.add_development_dependency "pdf-reader"
   s.add_development_dependency 'rake'
   s.add_development_dependency 'minitest'
   s.add_development_dependency 'pry'
+  s.add_development_dependency 'warning'
 
   if RUBY_VERSION.to_f >= 3.1
     s.add_development_dependency 'matrix'
-  end
-
-  if RUBY_VERSION.to_f >= 2.4
-    s.add_development_dependency 'warning'
   end
 end

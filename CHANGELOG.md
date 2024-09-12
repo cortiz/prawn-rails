@@ -1,6 +1,7 @@
 # Changelog
 
 * `Unreleased` - [View Diff](https://github.com/cortiz/prawn-rails/compare/v1.4.2...master)
+  - [#52](https://github.com/cortiz/prawn-rails/pull/52) - Add active_support as a dependency and use the active_support lazy load hooks
   - Remove unnecessary method `get_metadata` from `PrawnRailsHelper` which was getting included into `ActionView::Base`
   - Remove unnecessary rescue in `PrawnRails.config`
   - Remove redundant method `PrawnRails::Document.extensions`

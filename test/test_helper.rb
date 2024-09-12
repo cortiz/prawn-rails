@@ -1,18 +1,14 @@
 ENV["RAILS_ENV"] = "test"
 
-begin
-  require 'warning'
+require 'warning'
 
-  Warning.ignore(
-    %r{mail/parsers/address_lists_parser}, ### Hide mail gem warnings
-  )
+Warning.ignore(
+  %r{mail/parsers/address_lists_parser}, ### Hide mail gem warnings
+)
 
-  Warning.ignore(
-    %r{pdf/reader/font.* assigned but unused variable}, ### Hide pdf/reader gem warnings
-  )
-rescue LoadError
-  # Do nothing
-end
+Warning.ignore(
+  %r{pdf/reader/font.* assigned but unused variable}, ### Hide pdf/reader gem warnings
+)
 
 if RUBY_VERSION.to_f >= 3.1
   require "matrix"
