@@ -4,7 +4,7 @@ require 'prawn/table'
 module PrawnRails
   class Document < Prawn::Document
     def initialize(options = {})
-      options = PrawnRails.config.merge(options)
+      options = PrawnRails.config.except(:additional_fonts, :default_font_name).merge(options)
 
       super(options)
     end
@@ -15,6 +15,22 @@ module PrawnRails
       # pdf.text 10.to_s  #=> works
       # To circumvent this situation, we call to_s on value, and delegate action to actual Prawn::Document
       super(value.to_s, options)
+    end
+
+    def start_new_page(options = {})
+      return_val = super
+
+      if state.page_count == 1
+        if PrawnRails.config.additional_fonts
+          font_families.update(PrawnRails.config.additional_fonts)
+        end
+
+        if PrawnRails.config.default_font_name
+          font(PrawnRails.config.default_font_name)
+        end
+      end
+
+      return_val
     end
   end
 end

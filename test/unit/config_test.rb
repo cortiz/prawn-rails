@@ -2,24 +2,18 @@ require 'test_helper'
 
 class ConfigTest < ActiveSupport::TestCase
 
-  def setup
-    @original_config = PrawnRails.config.clone
-  end
-
   def teardown
-    PrawnRails.config do |config|
-      config.keys.each do |key|
-        config.delete(key)
-      end
-
-      @original_config.each do |k,v|
-        config[k] = v
-      end
-    end
+    restore_default_config
   end
 
   test "has a default config" do
-    assert_equal PrawnRails.config.symbolize_keys, {page_layout: :portrait, page_size: "A4", skip_page_creation: false}
+    assert_equal PrawnRails.config.symbolize_keys, {
+      page_layout: :portrait,
+      page_size: "A4",
+      skip_page_creation: false,
+      default_font_name: nil,
+      additional_fonts: nil,
+    }
   end
 
   test "config can be set with block syntax" do
@@ -28,7 +22,13 @@ class ConfigTest < ActiveSupport::TestCase
       config.page_size = "A8"
     end
 
-    assert_equal PrawnRails.config.symbolize_keys, {page_layout: :landscape, page_size: "A8", skip_page_creation: false}
+    assert_equal PrawnRails.config.symbolize_keys, {
+      page_layout: :landscape,
+      page_size: "A8",
+      skip_page_creation: false,
+      default_font_name: nil,
+      additional_fonts: nil,
+    }
   end
 
   test "allows reading any hash value via method syntax" do
