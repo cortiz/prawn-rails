@@ -26,6 +26,8 @@ module PrawnRails
     page_layout: :portrait,
     page_size: "A4",
     skip_page_creation: false,
+    additional_fonts: nil,
+    default_font_name: nil,
   )
 
   def config(&block)

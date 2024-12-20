@@ -21,3 +21,17 @@ Rails.backtrace_cleaner.remove_silencers!
 
 require 'pry'
 require 'pdf/reader'
+
+DEFAULT_CONFIG ||= PrawnRails.config.clone
+
+def restore_default_config
+  PrawnRails.config do |config|
+    config.keys.each do |key|
+      config.delete(key)
+    end
+
+    DEFAULT_CONFIG.each do |k,v|
+      config[k] = v
+    end
+  end
+end
